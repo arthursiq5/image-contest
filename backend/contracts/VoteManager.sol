@@ -19,6 +19,9 @@ contract VoteManager {
     mapping(address => Candidate) private candidates;
     mapping(uint=> address) private accounts;
 
+    event Voted(address indexed _candidateAddress, address indexed _voterAddress, uint _totalVote);
+    event candidateCreated(address indexed canditateAddress, string name);
+
     function registerCandidate(string calldata _name, string calldata _imageHash) external {
         require(msg.sender != address(0), "Sender address must be valid"); 
         candidatesIds.increment();
