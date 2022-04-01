@@ -32,5 +32,10 @@ contract VoteManager {
         accounts[candidateId] = msg.sender;
         emit candidateCreated(_address, _name);
     }
+
+    function vote(address _forCandidate) external {
+        candidates[_forCandidate].totalVote += 1;
+        emit Voted(_forCandidate, msg.sender, candidates[_forCandidate].totalVote);
+    }
 }
 
