@@ -7,7 +7,10 @@ import getContract from "./utils/useGetContract";
 function App() {
   /*-----------STATES---------------*/
   // const [typedContract, setTypedContract] = useState<ExampleContract>()
-  const [contract, setContract] = useState<any>(undefined)
+  const [contract, setContract] = useState()
+  const [selectedImage, setSelectedImage] = useState()
+  const [candidates, setCandidates] = useState<>([])
+  const [candidateFormData, setCandidateFormData] = useState({ name: '', imageHash: '' })
   const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
   /*-----------SIDE EFFECTS---------------*/
