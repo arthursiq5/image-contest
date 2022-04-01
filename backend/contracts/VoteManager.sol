@@ -37,5 +37,16 @@ contract VoteManager {
         candidates[_forCandidate].totalVote += 1;
         emit Voted(_forCandidate, msg.sender, candidates[_forCandidate].totalVote);
     }
+
+    function fetchCandidates() external view returns (Candidate[] memory) {
+        uint itemCount = candidatesIds.current();
+        Candidate[] memory candidatesArray = new Candidate[](itemCount);
+        for (uint256 index = 0; index < itemCount; index++) {
+            uint currentId = index + 1;
+            Candidate memory currentCandidate = candidates[accounts[currentId]];
+            candidatesArray[index] = currentCandidate;
+        }
+        return candidatesArray;
+    }
 }
 
