@@ -1,3 +1,5 @@
+import { Button, Container, Stack, TextField } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 // if you have successfuly compiled the smart contract in the backend folder, typechain should have created an interface that we can use here 
@@ -38,49 +40,70 @@ async function addAccount() {
 }
 
   return (
+    <><>
+      <Container maxWidth="md" sx={marginY} />: "2rem" }>
+      <Box component="form">
+        <Stack direction="row" alignItems="center" spacing={2} mb={4}>
+          <TextField id="filled-basic"
+            label="Name" variant="filled"
+            name="name"
+            value={candidateFormData.name}
+            onChange={handleChange} />
+          <label htmlFor="contained-button-file">
+            <input type="file" accept="image/*" onChange={(e) => setSelectedImage(e.target?.files[0])} />
+          </label>
+
+          <Button variant="contained" component="span"
+            onClick={() => registerCandidate()}>
+            Register as Candidate
+          </Button>
+        </Stack>
+      </Box>
+    </>
     <div className="flex flex-col w-full h-full bg-white dark:bg-gray-700">
- 
-      <header className="flex flex-col items-center justify-center flex-grow text-2xl text-gray-700 dark:text-white">
-        <img src={logo} className="animate-spin-slow h-72" alt="logo" />
-        <p>Vite + React + Solidity + Typescript = 🌞</p>
-        <p className="my-8">
-          <button
-            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-teal-600 border border-transparent rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-            onClick={() => addAccount()}
-          >
-            Press me and check your console :)
-          </button>
-        </p>
-        <p>
-          <a
-            className="text-blue-400"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="text-blue-400"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-          {" | "}
-          <a
-            className="text-blue-400"
-            href="https://docs.soliditylang.org/en/v0.8.13/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Solidity Docs
-          </a>
-        </p>
-      </header>
-    </div>
+
+        <header className="flex flex-col items-center justify-center flex-grow text-2xl text-gray-700 dark:text-white">
+          <img src={logo} className="animate-spin-slow h-72" alt="logo" />
+          <p>Vite + React + Solidity + Typescript = 🌞</p>
+          <p className="my-8">
+            <button
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-teal-600 border border-transparent rounded-md shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+              onClick={() => addAccount()}
+            >
+              Press me and check your console :)
+            </button>
+          </p>
+          <p>
+            <a
+              className="text-blue-400"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+            {" | "}
+            <a
+              className="text-blue-400"
+              href="https://vitejs.dev/guide/features.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vite Docs
+            </a>
+            {" | "}
+            <a
+              className="text-blue-400"
+              href="https://docs.soliditylang.org/en/v0.8.13/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solidity Docs
+            </a>
+          </p>
+        </header>
+      </div></>
+    </>
   );
 }
 
